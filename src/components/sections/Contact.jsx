@@ -58,17 +58,17 @@ const Contact = () => {
 
     return (
         <section id="contact" className="section">
-            <div className="container mx-auto px-8">
+            <div className="container mx-auto px-4 sm:px-8">
                 <div className="section-header animate-up text-center mb-16">
                     <span className="section-subtitle text-[var(--clr-accent)] font-mono uppercase tracking-widest text-sm mb-2 block">Get In Touch</span>
-                    <h2 className="section-title text-4xl md:text-5xl font-black mb-4">Deployment Request</h2>
+                    <h2 className="section-title text-2xl sm:text-3xl md:text-5xl font-black mb-4">Deployment Request</h2>
                 </div>
 
                 <div className="contact-grid grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left Column: Channels */}
                     <div className="contact-left animate-left">
                         <div className="contact-info-wrapper space-y-8">
-                            <div className="channels-section bg-[var(--clr-card-bg)] border border-[var(--clr-card-border)] p-8 rounded-2xl">
+                            <div className="channels-section bg-[var(--clr-card-bg)] border border-[var(--clr-card-border)] p-6 sm:p-8 rounded-2xl">
                                 <h3 className="contact-sub-title text-[var(--clr-accent)] font-bold flex items-center gap-3 mb-6">
                                     <i className="fas fa-network-wired"></i> Contact Channels
                                 </h3>
@@ -81,15 +81,15 @@ const Contact = () => {
                                         { icon: 'fas fa-map-marker-alt', label: 'Location', value: 'Mansoura, Egypt', link: null }
                                     ].map((channel, i) => (
                                         <div key={i} className="channel-item flex items-center gap-4 group">
-                                            <div className="icon-box w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.03)] flex items-center justify-center text-[var(--clr-accent)] group-hover:scale-110 transition-all border border-[rgba(255,255,255,0.05)]">
+                                            <div className="icon-box w-12 h-12 flex-shrink-0 sm:w-14 sm:h-14 rounded-xl bg-[rgba(255,255,255,0.03)] flex items-center justify-center text-[var(--clr-accent)] text-lg sm:text-xl group-hover:scale-110 transition-all border border-[rgba(255,255,255,0.05)]">
                                                 <i className={channel.icon}></i>
                                             </div>
-                                            <div className="channel-info">
+                                            <div className="channel-info min-w-0 flex-1">
                                                 <span className="channel-label text-[10px] font-mono uppercase tracking-widest text-[var(--clr-text-dim)] block mb-1">{channel.label}</span>
                                                 {channel.link ? (
-                                                    <a href={channel.link} className="channel-link font-bold text-[var(--clr-text)] hover:text-[var(--clr-accent)] transition-colors line-clamp-1">{channel.value}</a>
+                                                    <a href={channel.link} className="channel-link font-bold text-[var(--clr-text)] hover:text-[var(--clr-accent)] transition-colors break-all text-sm sm:text-base leading-tight block">{channel.value}</a>
                                                 ) : (
-                                                    <span className="channel-value font-bold text-[var(--clr-text)]">{channel.value}</span>
+                                                    <span className="channel-value font-bold text-[var(--clr-text)] text-sm sm:text-base">{channel.value}</span>
                                                 )}
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                                     STATUS: <span className={`status-text ${status === 'DEPLOYED' ? 'text-[#27c93f]' : status === 'FAILED' ? 'text-[#ff5f56]' : 'text-inherit'}`}>{status}</span>
                                 </div>
                             </div>
-                            <div className="terminal-body p-8 min-h-[400px] relative">
+                            <div className="terminal-body p-6 sm:p-8 min-h-[400px] relative">
                                 {!finalSuccess ? (
                                     status === "READY" ? (
                                         <form className="devops-form space-y-6" ref={formRef} onSubmit={handleSubmit}>
@@ -179,7 +179,7 @@ const Contact = () => {
                             { icon: 'fas fa-user-gear', title: 'Junior DevOps Roles', desc: 'Entry-level engineering' },
                             { icon: 'fab fa-aws', title: 'Cloud Engineering', desc: 'AWS infrastructure roles' }
                         ].map((opp, i) => (
-                            <div key={i} className="opp-card p-8 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-2xl hover:border-[var(--clr-accent)] transition-all group">
+                            <div key={i} className="opp-card p-6 sm:p-8 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-2xl hover:border-[var(--clr-accent)] transition-all group">
                                 <div className="opp-icon text-3xl text-[var(--clr-accent)] mb-4 group-hover:scale-110 transition-transform">
                                     <i className={opp.icon}></i>
                                 </div>

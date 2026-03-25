@@ -54,10 +54,16 @@ const Hero = () => {
     return (
         <section id="hero" className="relative flex items-center min-h-screen overflow-hidden bg-transparent">
             <div className="container px-8 mx-auto">
-                <div className="grid items-center grid-cols-1 gap-16 pt-32 hero-grid md:grid-cols-2">
+                <div className="grid items-center grid-cols-1 gap-16 pt-20 hero-grid md:grid-cols-2">
                     
                     {/* Left Side: Content */}
                     <div className="hero-left animate-up">
+                        <div className="hero-badge-wrapper mb-6">
+                            <div className="hero-badge">
+                                <i className="fas fa-wand-magic-sparkles sparkle-icon"></i>
+                                <span>Cloud & DevOps Engineer</span>
+                            </div>
+                        </div>
                         <h1 className="hero-name text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-[-2px] whitespace-nowrap">
                             Ahmed <span className="highlight-surname text-[var(--clr-accent)]">Hamed</span>
                         </h1>
@@ -159,6 +165,36 @@ const Hero = () => {
 
                 .tech-slider {
                     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+                }
+
+                .hero-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 6px 16px;
+                    border-radius: 9999px;
+                    background: rgba(0, 210, 255, 0.05);
+                    border: 1px solid rgba(0, 210, 255, 0.2);
+                    color: var(--clr-accent);
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    font-style: italic;
+                    letter-spacing: 0.5px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    backdrop-filter: blur(10px);
+                }
+
+                .hero-badge:hover {
+                    background: rgba(0, 210, 255, 0.1);
+                    border-color: var(--clr-accent);
+                    transform: translateY(-2px);
+                    box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+                }
+
+                .sparkle-icon {
+                    color: var(--clr-accent-3);
+                    filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.3));
+                    font-size: 0.8rem;
                 }
             ` }} />
         </section>

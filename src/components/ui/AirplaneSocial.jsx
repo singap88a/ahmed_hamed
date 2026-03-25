@@ -25,126 +25,79 @@ const AirplaneSocial = () => {
     }, []);
 
     const socialLinks = [
-        { href: 'https://www.linkedin.com/in/ahmed-hamed-340570364', icon: 'fab fa-linkedin', class: 'ln', title: 'LinkedIn' },
-        { href: 'https://github.com/ahmed1707hamed-tech', icon: 'fab fa-github', class: 'gh', title: 'GitHub' },
-        { href: 'https://wa.me/201062425594', icon: 'fab fa-whatsapp', class: 'wa', title: 'WhatsApp' },
-        { href: 'https://x.com/AhmedHa23091122', icon: 'fab fa-twitter', class: 'tw', title: 'Twitter' },
-        { href: 'mailto:ahmed.1707.hamed@gmail.com', icon: 'fas fa-envelope', class: 'ml', title: 'Email' },
+        { href: 'https://www.linkedin.com/in/ahmed-hamed-340570364', icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: '#0077b5' },
+        { href: 'https://github.com/ahmed1707hamed-tech', icon: 'fab fa-github', label: 'GitHub', color: '#171515' },
+        { href: 'https://wa.me/201062425594', icon: 'fab fa-whatsapp', label: 'WhatsApp', color: '#25D366' },
+        { href: 'https://x.com/AhmedHa23091122', icon: 'fab fa-x-twitter', label: 'Twitter', color: '#000000' },
+        { href: 'mailto:ahmed.1707.hamed@gmail.com', icon: 'fas fa-envelope', label: 'Email', color: '#EA4335' },
     ];
 
     return (
-        <div className="floating-social-container">
-            <button
-                ref={triggerRef}
-                className={`airplane-btn ${isActive ? 'active' : ''}`}
-                onClick={toggleMenu}
-                aria-label="Open Social Links"
-            >
-                <i className="fas fa-paper-plane"></i>
-            </button>
-
+        <div className="airplane-social-wrapper fixed left-[30px] bottom-[30px] z-[2000]">
+            {/* Social Icons Menu */}
             <div
                 ref={menuRef}
-                className={`floating-social-menu ${isActive ? 'active' : ''}`}
+                className={`flex flex-col gap-4 mb-4 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${
+                    isActive ? 'scale-100 opacity-100 translate-y-0' : 'scale-0 opacity-0 translate-y-10'
+                }`}
             >
-                {socialLinks.map((link, idx) => (
+                {socialLinks.map((social, idx) => (
                     <a
                         key={idx}
-                        href={link.href}
+                        href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`f-social-link ${link.class}`}
-                        title={link.title}
+                        className="group relative flex items-center h-12"
                     >
-                        <i className={link.icon}></i>
+                        {/* Tooltip Label */}
+                        <div className="absolute left-16 opacity-0 group-hover:opacity-100 group-hover:left-14 transition-all duration-300 pointer-events-none">
+                            <span className="px-3 py-1.5 rounded-lg bg-[rgba(10,10,10,0.9)] border border-white/10 text-white text-[10px] font-bold tracking-widest uppercase whitespace-nowrap shadow-2xl backdrop-blur-md">
+                                {social.label}
+                            </span>
+                        </div>
+
+                        {/* Icon Container */}
+                        <div 
+                            className="w-12 h-12 rounded-full flex items-center justify-center text-white text-lg transition-all duration-300 group-hover:scale-110 shadow-lg"
+                            style={{ 
+                                backgroundColor: social.color,
+                                border: '2px solid rgba(255, 255, 255, 0.15)'
+                            }}
+                        >
+                            <i className={`${social.icon} transition-transform duration-300 group-hover:rotate-[15deg]`}></i>
+                        </div>
                     </a>
                 ))}
             </div>
 
+            {/* Main Trigger Button */}
+            <button
+                ref={triggerRef}
+                onClick={toggleMenu}
+                className={`group relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 overflow-hidden shadow-2xl ${
+                    isActive ? 'bg-[var(--clr-accent)] rotate-45 shadow-[0_0_30px_rgba(0,210,255,0.4)]' : 'bg-[var(--clr-accent)] hover:bg-[var(--clr-accent-2)]'
+                }`}
+                aria-label={isActive ? "Close Menu" : "Open Social Menu"}
+            >
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className={`fas ${isActive ? 'fa-times' : 'fa-paper-plane'} text-white text-xl transition-all duration-500 ${!isActive && 'group-hover:-translate-y-1 group-hover:translate-x-1'}`}></i>
+                
+                {/* Glow Effect */}
+                {!isActive && (
+                    <div className="absolute -inset-1 bg-[var(--clr-accent)] rounded-full opacity-20 group-hover:opacity-40 animate-pulse blur-md"></div>
+                )}
+            </button>
+
             <style dangerouslySetInnerHTML={{ __html: `
-                .floating-social-container {
-                    position: fixed;
-                    bottom: 30px;
-                    left: 30px;
-                    z-index: 2000;
-                    display: flex;
-                    flex-direction: column-reverse;
-                    align-items: center;
-                    gap: 15px;
+                .airplane-social-wrapper {
+                    perspective: 1000px;
                 }
-
-                .airplane-btn {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    background: var(--clr-accent);
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    font-size: 1.5rem;
-                    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                @keyframes float {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
                 }
-
-                .airplane-btn:hover {
-                    transform: scale(1.1) rotate(-15deg);
-                    background: var(--clr-accent-2);
-                }
-
-                .airplane-btn.active {
-                    background: var(--clr-red);
-                    transform: rotate(-45deg);
-                }
-
-                .floating-social-menu {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 12px;
-                    opacity: 0;
-                    visibility: hidden;
-                    transform: translateY(20px);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-
-                .floating-social-menu.active {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0);
-                }
-
-                .f-social-link {
-                    width: 45px;
-                    height: 45px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    text-decoration: none;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-                }
-
-                .f-social-link:hover {
-                    transform: scale(1.1) translateX(5px);
-                }
-
-                .f-social-link.ml { background-color: var(--clr-f-ml); }
-
-                @media (max-width: 768px) {
-                    .airplane-btn {
-                        width: 48px;
-                        height: 48px;
-                        font-size: 1.2rem;
-                    }
-                    .f-social-link {
-                        width: 38px;
-                        height: 38px;
-                        font-size: 0.9rem;
-                    }
+                .airplane-btn-pulse {
+                    animation: float 3s ease-in-out infinite;
                 }
             ` }} />
         </div>
@@ -152,3 +105,4 @@ const AirplaneSocial = () => {
 };
 
 export default AirplaneSocial;
+

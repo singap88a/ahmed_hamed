@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
+import Toolchain from './components/sections/Toolchain';
 import Projects from './components/sections/Projects';
 import Journey from './components/sections/Journey';
 import Certifications from './components/sections/Certifications';
@@ -102,6 +103,7 @@ function App() {
         <div className="page-container">
           <Hero />
           <About />
+          <Toolchain />
           <Skills />
           <Projects />
           <Certifications />

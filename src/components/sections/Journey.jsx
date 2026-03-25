@@ -92,16 +92,16 @@ const Journey = () => {
 
     return (
         <section id="journey" className="section bg-transparent" ref={sectionRef}>
-            <div className="container mx-auto px-8">
+            <div className="container mx-auto px-4 sm:px-8">
                 <div className="section-header animate-up text-center mb-20">
                     <span className="section-subtitle text-[var(--clr-accent)] font-mono uppercase tracking-widest text-sm mb-2 block">Roadmap</span>
-                    <h2 className="section-title text-4xl md:text-5xl font-black mb-4">DevOps Engineering Journey</h2>
+                    <h2 className="section-title text-2xl sm:text-3xl md:text-5xl font-black mb-4">DevOps Engineering Journey</h2>
                     <p className="text-[var(--clr-text-dim)] max-w-xl mx-auto">Tracing the evolution from network packets to automated cloud ecosystems.</p>
                 </div>
 
-                <div className="timeline relative max-w-5xl mx-auto px-4">
+                <div className="timeline relative max-w-5xl mx-auto px-0 sm:px-4">
                     {/* Main Track Background */}
-                    <div className="timeline-track absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-[rgba(255,255,255,0.05)]">
+                    <div className="timeline-track absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-[rgba(255,255,255,0.05)]">
                         {/* Progressive Path */}
                         <div 
                             className="timeline-track-progress absolute top-0 left-0 w-full bg-gradient-to-b from-[var(--clr-accent)] to-[var(--clr-accent-2)] shadow-[0_0_15px_var(--clr-accent)] transition-all duration-300 ease-out"
@@ -113,12 +113,12 @@ const Journey = () => {
                         {journeyPhases.map((phase, idx) => (
                             <div key={idx} className={`timeline-item relative flex items-start md:items-center gap-12 md:gap-0 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                                 {/* Vertical Milestone Node */}
-                                <div className={`timeline-node absolute left-8 md:left-1/2 w-5 h-5 rounded-full md:-translate-x-1/2 z-10 transition-all duration-700 ${scrollProgress * 100 > (idx * 16) ? 'bg-[var(--clr-accent)] shadow-[0_0_20px_var(--clr-accent)] scale-125' : 'bg-[#1a1c23] border-2 border-[rgba(255,255,255,0.1)]'}`}>
+                                <div className={`timeline-node absolute left-[20px] md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 transition-all duration-700 ${scrollProgress * 100 > (idx * 16) ? 'bg-[var(--clr-accent)] shadow-[0_0_20px_var(--clr-accent)] scale-125' : 'bg-[#1a1c23] border-2 border-[rgba(255,255,255,0.1)]'}`}>
                                     {scrollProgress * 100 > (idx * 16) && <div className="absolute inset-0 rounded-full animate-ping bg-[var(--clr-accent)] opacity-40"></div>}
                                 </div>
                                 
-                                <div className={`timeline-card-wrapper w-full md:w-[45%] pl-12 md:pl-0 ${idx % 2 === 0 ? 'timeline-reveal-left' : 'timeline-reveal-right'}`}>
-                                    <div className={`timeline-card card p-8 border border-[var(--clr-card-border)] bg-[var(--clr-card-bg)] hover:border-[var(--clr-accent)] transition-all duration-500 rounded-3xl group relative overflow-hidden h-full`}>
+                                <div className={`timeline-card-wrapper w-full md:w-[45%] pl-10 md:pl-0 ${idx % 2 === 0 ? 'timeline-reveal-left' : 'timeline-reveal-right'}`}>
+                                    <div className={`timeline-card card p-6 sm:p-8 border border-[var(--clr-card-border)] bg-[var(--clr-card-bg)] hover:border-[var(--clr-accent)] transition-all duration-500 rounded-3xl group relative overflow-hidden h-full`}>
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--clr-accent)] opacity-[0.02] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:opacity-10 transition-opacity"></div>
                                         
                                         <span className="timeline-phase-label text-[var(--clr-accent)] font-black text-[10px] uppercase tracking-[0.2em] mb-3 block">PHASE {phase.phase}</span>

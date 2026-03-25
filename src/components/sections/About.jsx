@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     const terminalItems = [
         { key: 'role', value: 'DevOps & Cloud Engineer' },
-        { key: 'experience', value: '7+ Years in IT Infrastructure' },
+        // { key: 'experience', value: '7+ Years in IT Infrastructure' },
         { key: 'cloud', value: 'AWS (Solutions Architect)' },
         { key: 'containers', value: 'Docker, Kubernetes (EKS/AKS)' },
         { key: 'iac', value: 'Terraform, Ansible, CloudFormation' },
