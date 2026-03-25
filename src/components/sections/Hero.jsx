@@ -52,16 +52,16 @@ const Hero = () => {
     ];
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
-            <div className="container mx-auto px-8">
-                <div className="hero-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center pt-24 md:pt-32">
+        <section id="hero" className="relative flex items-center min-h-screen overflow-hidden bg-transparent">
+            <div className="container px-8 mx-auto">
+                <div className="grid items-center grid-cols-1 gap-16 pt-32 hero-grid md:grid-cols-2">
                     
                     {/* Left Side: Content */}
-                    <div className="hero-left animate-up px-2 md:px-0 order-2 md:order-1 flex flex-col items-start">
-                        <h1 className="hero-name text-4xl md:text-7xl lg:text-8xl font-black mb-4 leading-[1.1] tracking-[-2px]">
+                    <div className="hero-left animate-up">
+                        <h1 className="hero-name text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-[-2px] whitespace-nowrap">
                             Ahmed <span className="highlight-surname text-[var(--clr-accent)]">Hamed</span>
                         </h1>
-                        <h2 className="hero-subtitle text-xl md:text-3xl font-semibold mb-6 h-8 text-[var(--clr-accent-3)]">
+                        <h2 className="hero-subtitle text-3xl font-semibold mb-6 h-10 text-[var(--clr-accent-3)]">
                             <span>{typedText}</span><span className="typing-cursor ml-1 animate-[blink-cursor_0.8s_infinite]">|</span>
                         </h2>
                         <p className="hero-description text-[var(--clr-text-dim)] text-lg leading-relaxed max-w-[600px] mb-10 line-clamp-5">
@@ -72,7 +72,7 @@ const Hero = () => {
                         </p>
 
                         {/* Tech Slider */}
-                        <div className="tech-slider-container mb-8 overflow-hidden">
+                        <div className="mb-8 overflow-hidden tech-slider-container">
                             <Swiper
                                 dir="ltr"
                                 modules={[Autoplay, FreeMode]}
@@ -98,7 +98,7 @@ const Hero = () => {
                             </Swiper>
                         </div>
 
-                        <div className="hero-cta-group flex gap-6">
+                        <div className="flex gap-6 hero-cta-group">
                             <a id="hero-btn-cv" href="./my_cv.pdf" target="_blank" rel="noopener noreferrer" className="btn-cv">
                                 <i className="fas fa-file-download"></i>
                                 <span>Download CV</span>
@@ -107,8 +107,8 @@ const Hero = () => {
                     </div>
 
                     {/* Right Side: Portrait */}
-                    <div className="hero-right animate-up delay-1 order-1 md:order-2 mb-12 md:mb-0">
-                        <div className="hero-portrait relative w-full group max-w-[320px] md:max-w-[450px] mx-auto">
+                    <div className="hero-right animate-up delay-1">
+                        <div className="relative w-full hero-portrait group">
                             <div className="portrait-frame relative aspect-[4/5] rounded-[30px] overflow-hidden">
                                 <img 
                                     src="/assets/ahmed.jpeg" 
@@ -116,15 +116,15 @@ const Hero = () => {
                                     className="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
                                     loading="eager"
                                 />
-                                <div className="portrait-overlay absolute inset-0 bg-transparent"></div>
+                                <div className="absolute inset-0 bg-transparent portrait-overlay"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-                <a href="#about" className="scroll-link flex flex-col items-center">
+            <div className="absolute flex flex-col items-center gap-2 -translate-x-1/2 scroll-indicator bottom-8 left-1/2">
+                <a href="#about" className="flex flex-col items-center scroll-link">
                     <span className="mouse w-6 h-10 border-2 border-[var(--clr-text-dim)] rounded-full relative">
                         <span className="wheel w-1 h-2 bg-[var(--clr-accent)] rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-[scroll-wheel_1s_infinite]"></span>
                     </span>
