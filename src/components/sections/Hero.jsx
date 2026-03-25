@@ -54,14 +54,14 @@ const Hero = () => {
     return (
         <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
             <div className="container mx-auto px-8">
-                <div className="hero-grid grid grid-cols-1 md:grid-cols-2 gap-16 items-center pt-32">
+                <div className="hero-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center pt-24 md:pt-32">
                     
                     {/* Left Side: Content */}
-                    <div className="hero-left animate-up">
-                        <h1 className="hero-name text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-[-2px] whitespace-nowrap">
+                    <div className="hero-left animate-up px-2 md:px-0 order-2 md:order-1 flex flex-col items-start">
+                        <h1 className="hero-name text-4xl md:text-7xl lg:text-8xl font-black mb-4 leading-[1.1] tracking-[-2px]">
                             Ahmed <span className="highlight-surname text-[var(--clr-accent)]">Hamed</span>
                         </h1>
-                        <h2 className="hero-subtitle text-3xl font-semibold mb-6 h-10 text-[var(--clr-accent-3)]">
+                        <h2 className="hero-subtitle text-xl md:text-3xl font-semibold mb-6 h-8 text-[var(--clr-accent-3)]">
                             <span>{typedText}</span><span className="typing-cursor ml-1 animate-[blink-cursor_0.8s_infinite]">|</span>
                         </h2>
                         <p className="hero-description text-[var(--clr-text-dim)] text-lg leading-relaxed max-w-[600px] mb-10 line-clamp-5">
@@ -107,8 +107,8 @@ const Hero = () => {
                     </div>
 
                     {/* Right Side: Portrait */}
-                    <div className="hero-right animate-up delay-1">
-                        <div className="hero-portrait relative w-full group">
+                    <div className="hero-right animate-up delay-1 order-1 md:order-2 mb-12 md:mb-0">
+                        <div className="hero-portrait relative w-full group max-w-[320px] md:max-w-[450px] mx-auto">
                             <div className="portrait-frame relative aspect-[4/5] rounded-[30px] overflow-hidden">
                                 <img 
                                     src="/assets/ahmed.jpeg" 

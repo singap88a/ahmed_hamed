@@ -17,12 +17,12 @@ const About = () => {
     return (
         <section id="about" className="section">
             <div className="container mx-auto px-8">
-                <div className="section-header mb-16 animate-up text-center md:text-left">
+                <div className="section-header mb-16 animate-up text-left">
                     <span className="section-subtitle text-[var(--clr-accent)] font-mono uppercase tracking-widest text-sm mb-2 block">Discovery</span>
                     <h2 className="section-title text-4xl md:text-5xl font-black">Beyond the Console</h2>
                 </div>
                 
-                <div className="about-grid grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
+                <div className="about-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
                     <div className="about-image order-2 md:order-1 h-full">
                         <div className="modern-terminal terminal-mini animate-up group h-full flex flex-col">
                             <div className="terminal-header bg-[var(--clr-terminal-header)] p-4 flex items-center gap-4 border-b border-[var(--clr-card-border)] shrink-0">
@@ -33,8 +33,8 @@ const About = () => {
                                 </div>
                                 <span className="terminal-title font-mono text-xs text-[var(--clr-text-dim)] uppercase tracking-wider">~/ahmed-hamed — devops-bash</span>
                             </div>
-                            <div className="terminal-body bg-[var(--clr-terminal-bg)] p-8 flex-grow flex items-center">
-                                <ul className="terminal-list space-y-4 font-mono text-sm md:text-base w-full">
+                            <div className="terminal-body bg-[var(--clr-terminal-bg)] p-6 md:p-8 flex-grow flex items-center overflow-x-hidden">
+                                <ul className="terminal-list space-y-4 font-mono text-xs md:text-base w-full">
                                     {terminalItems.map((item, idx) => (
                                         <li key={idx} className="flex gap-3 items-start">
                                             <span className="term-key text-[var(--clr-accent)] shrink-0">{item.key}:</span>
@@ -48,8 +48,8 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div className="about-text order-1 md:order-2 flex flex-col justify-center gap-6">
+ 
+                    <div className="about-text order-1 md:order-2 flex flex-col justify-center gap-6 text-left">
                         <p className="lead text-2xl font-bold text-[var(--clr-text)] border-l-4 border-[var(--clr-accent)] pl-6 py-2 bg-[rgba(0,210,255,0.03)]">From Enterprise Networking to Cloud Orchestration.</p>
                         <p className="text-[var(--clr-text-dim)] leading-relaxed text-lg">
                             Ahmed Hamed is a Cloud & DevOps Engineer with a robust technical foundation rooted in 

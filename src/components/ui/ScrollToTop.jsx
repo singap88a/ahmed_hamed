@@ -62,10 +62,16 @@ const ScrollToTop = () => {
                     transform: translateY(0);
                 }
 
-                .scroll-top-btn:hover {
-                    background: var(--clr-accent-2);
                     transform: translateY(-5px);
                     box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+                }
+
+                @media (max-width: 768px) {
+                    .scroll-top-btn {
+                        width: 48px;
+                        height: 48px;
+                        font-size: 1rem;
+                    }
                 }
             ` }} />
         </button>

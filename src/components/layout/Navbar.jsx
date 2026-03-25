@@ -55,7 +55,13 @@ const Navbar = () => {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-        document.body.style.overflow = !isMenuOpen ? 'hidden' : 'auto';
+        if (!isMenuOpen) {
+            document.body.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.classList.remove('menu-open');
+            document.body.style.overflow = 'auto';
+        }
     };
 
     return (
@@ -87,7 +93,7 @@ const Navbar = () => {
                         </ul>
 
                         {/* Action Buttons */}
-                        <div className="flex items-center gap-4 shrink-0">
+                        <div className="flex items-center gap-3 shrink-0">
                             <button 
                                 onClick={toggleMenu}
                                 className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none z-[1001] bg-[rgba(255,255,255,0.05)] rounded-full hover:bg-[rgba(255,255,255,0.12)] transition-all"
@@ -101,10 +107,10 @@ const Navbar = () => {
                             <a 
                                 href="#contact" 
                                 onClick={() => handleNavClick('contact')}
-                                className={`flex items-center gap-2.5 px-6 py-2.5 text-[11px] font-black uppercase tracking-widest rounded-full transition-all duration-500 ${activeSection === 'contact' ? 'bg-white text-black ring-2 ring-white shadow-[0_0_30px_white]' : 'bg-[var(--clr-accent)] text-black hover:scale-105 hover:shadow-[0_0_25px_rgba(0,210,255,0.5)]'}`}
+                                className={`hidden md:flex items-center gap-2.5 px-4 md:px-6 py-2.5 text-[11px] font-black uppercase tracking-widest rounded-full transition-all duration-500 ${activeSection === 'contact' ? 'bg-white text-black ring-2 ring-white' : 'bg-[var(--clr-accent)] text-black'}`}
                             >
                                 <i className="fas fa-paper-plane text-xs"></i>
-                                <span>Contact</span>
+                                <span className="hidden md:inline">Contact</span>
                             </a>
                         </div>
                     </nav>
@@ -113,24 +119,29 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div className={`fixed inset-0 z-[999] bg-[#0a0c10]/98 backdrop-blur-2xl transition-all duration-700 lg:hidden ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
-                <div className="flex flex-col items-center justify-center h-full space-y-6 p-8 relative overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-[var(--clr-accent)] rounded-full filter blur-[150px] opacity-15 pointer-events-none"></div>
+                <div className="mobile-menu-content h-full flex flex-col justify-between p-12 py-32 relative z-10">
+                    <ul className="flex flex-col gap-6">
+                        {[...navLinks, { name: 'Contact', href: '#contact', id: 'contact', icon: 'fas fa-paper-plane' }].map((link, idx) => (
+                            <li key={idx}>
+                                <a 
+                                    href={link.href}
+                                    onClick={() => handleNavClick(link.id)}
+                                    className={`flex items-center gap-5 text-3xl font-black uppercase tracking-tighter transition-all duration-500 ${activeSection === link.id ? 'text-[var(--clr-accent)]' : 'text-white'}`}
+                                >
+                                    <i className={`${link.icon} text-2xl opacity-70`}></i>
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                     
-                    {[...navLinks, { name: 'Contact', href: '#contact', id: 'contact', icon: 'fas fa-paper-plane' }].map((link, idx) => (
-                        <a 
-                            key={idx} 
-                            href={link.href}
-                            onClick={() => handleNavClick(link.id)}
-                            className={`flex items-center gap-5 text-3xl font-black uppercase tracking-tighter transition-all duration-500 hover:scale-110 ${activeSection === link.id ? 'text-[var(--clr-accent)]' : 'text-white'}`}
-                        >
-                            <i className={link.icon}></i>
-                            {link.name}
-                        </a>
-                    ))}
-                    
-                    <div className="pt-12 flex gap-10 text-4xl">
-                        <a href="https://github.com/ahmed1707hamed-tech" target="_blank" rel="noreferrer" className="text-[var(--clr-text-dim)] hover:text-white transition-all hover:scale-125"><i className="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/ahmed-hamed-340570364" target="_blank" rel="noreferrer" className="text-[var(--clr-text-dim)] hover:text-[#0077b5] transition-all hover:scale-125"><i className="fab fa-linkedin"></i></a>
+                    <div className="mobile-menu-footer border-t border-[rgba(255,255,255,0.1)] pt-12">
+                        <p className="text-[var(--clr-text-dim)] uppercase text-[10px] font-black tracking-[0.2em] mb-6">Let's Connect</p>
+                        <div className="flex gap-8">
+                            <a href="https://github.com/ahmed1707hamed-tech" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/ahmed-hamed-340570364" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-linkedin"></i></a>
+                            <a href="https://t.me/Devops_bash" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-telegram"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

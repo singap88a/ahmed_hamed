@@ -101,7 +101,7 @@ const Journey = () => {
 
                 <div className="timeline relative max-w-5xl mx-auto px-4">
                     {/* Main Track Background */}
-                    <div className="timeline-track absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-[rgba(255,255,255,0.05)] md:-translate-x-1/2">
+                    <div className="timeline-track absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-[rgba(255,255,255,0.05)]">
                         {/* Progressive Path */}
                         <div 
                             className="timeline-track-progress absolute top-0 left-0 w-full bg-gradient-to-b from-[var(--clr-accent)] to-[var(--clr-accent-2)] shadow-[0_0_15px_var(--clr-accent)] transition-all duration-300 ease-out"
@@ -117,7 +117,7 @@ const Journey = () => {
                                     {scrollProgress * 100 > (idx * 16) && <div className="absolute inset-0 rounded-full animate-ping bg-[var(--clr-accent)] opacity-40"></div>}
                                 </div>
                                 
-                                <div className={`timeline-card-wrapper w-full md:w-[45%] ${idx % 2 === 0 ? 'timeline-reveal-left' : 'timeline-reveal-right'}`}>
+                                <div className={`timeline-card-wrapper w-full md:w-[45%] pl-12 md:pl-0 ${idx % 2 === 0 ? 'timeline-reveal-left' : 'timeline-reveal-right'}`}>
                                     <div className={`timeline-card card p-8 border border-[var(--clr-card-border)] bg-[var(--clr-card-bg)] hover:border-[var(--clr-accent)] transition-all duration-500 rounded-3xl group relative overflow-hidden h-full`}>
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--clr-accent)] opacity-[0.02] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:opacity-10 transition-opacity"></div>
                                         
@@ -142,20 +142,19 @@ const Journey = () => {
             </div>
 
             <style dangerouslySetInnerHTML={{ __html: `
-                .timeline-reveal-left {
+                .timeline-reveal-left, .timeline-reveal-right {
                     opacity: 0;
-                    transform: translateX(-60px);
+                    transform: translateY(20px);
                     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
                 }
-                .timeline-reveal-right {
-                    opacity: 0;
-                    transform: translateX(60px);
-                    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+                @media (min-width: 768px) {
+                    .timeline-reveal-left { transform: translateX(-60px); }
+                    .timeline-reveal-right { transform: translateX(60px); }
                 }
                 .timeline-item.animate-in .timeline-reveal-left,
                 .timeline-item.animate-in .timeline-reveal-right {
                     opacity: 1;
-                    transform: translateX(0);
+                    transform: translate(0, 0);
                 }
                 .timeline-card {
                     box-shadow: 0 10px 30px rgba(0,0,0,0.3);

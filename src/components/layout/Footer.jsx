@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer id="footer" className="py-16 bg-transparent border-t border-[var(--clr-card-border)] animate-up">
             <div className="page-container">
-                <div className="footer-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div className="footer-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 md:px-0">
                     {/* Left Section: Branding */}
                     <div className="footer-brand space-y-6">
                         <a href="#" className="logo text-2xl font-black">

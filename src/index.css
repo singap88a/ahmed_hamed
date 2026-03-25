@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     /* Theme Variables - Dark Mode (Default) */
     --clr-bg: #0a0c10;
@@ -185,6 +189,25 @@
   .animate-up.animate-in {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 768px) {
+    h2 { font-size: 2.25rem !important; text-align: left !important; }
+    h3 { font-size: 1.5rem !important; }
+    .section-header { text-align: left !important; margin-bottom: 3rem !important; }
+    .container { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+    
+    .floating-social-container, .scroll-top-btn {
+      bottom: 15px !important;
+    }
+    .floating-social-container { left: 15px !important; }
+    .scroll-top-btn { right: 15px !important; }
+    
+    body.menu-open .floating-social-container,
+    body.menu-open .scroll-top-btn {
+      display: none !important;
+    }
   }
 
   @keyframes rotate {

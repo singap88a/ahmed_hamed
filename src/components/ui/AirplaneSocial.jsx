@@ -132,11 +132,20 @@ const AirplaneSocial = () => {
                     transform: scale(1.1) translateX(5px);
                 }
 
-                .f-social-link.ln { background-color: var(--clr-f-ln); }
-                .f-social-link.gh { background-color: var(--clr-f-gh); }
-                .f-social-link.wa { background-color: var(--clr-f-wa); }
-                .f-social-link.tw { background-color: var(--clr-f-tw); }
                 .f-social-link.ml { background-color: var(--clr-f-ml); }
+
+                @media (max-width: 768px) {
+                    .airplane-btn {
+                        width: 48px;
+                        height: 48px;
+                        font-size: 1.2rem;
+                    }
+                    .f-social-link {
+                        width: 38px;
+                        height: 38px;
+                        font-size: 0.9rem;
+                    }
+                }
             ` }} />
         </div>
     );
