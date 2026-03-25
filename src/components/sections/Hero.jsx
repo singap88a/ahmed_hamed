@@ -58,7 +58,7 @@ const Hero = () => {
                     
                     {/* Left Side: Content */}
                     <div className="hero-left animate-up">
-                        <div className="hero-badge-wrapper mb-6">
+                        <div className="hero-badge-wrapper mb-3 pt-10">
                             <div className="hero-badge">
                                 <i className="fas fa-wand-magic-sparkles sparkle-icon"></i>
                                 <span>Cloud & DevOps Engineer</span>
@@ -67,7 +67,7 @@ const Hero = () => {
                         <h1 className="hero-name text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-[-2px] whitespace-nowrap">
                             Ahmed <span className="highlight-surname text-[var(--clr-accent)]">Hamed</span>
                         </h1>
-                        <h2 className="hero-subtitle text-3xl font-semibold mb-6 h-10 text-[var(--clr-accent-3)]">
+                        <h2 className="hero-subtitle text-xl font-semibold mb-6 h-10 text-[var(--clr-accent-3)] whitespace-nowrap">
                             <span>{typedText}</span><span className="typing-cursor ml-1 animate-[blink-cursor_0.8s_infinite]">|</span>
                         </h2>
                         <p className="hero-description text-[var(--clr-text-dim)] text-lg leading-relaxed max-w-[600px] mb-10 line-clamp-5">
@@ -105,7 +105,7 @@ const Hero = () => {
                         </div>
 
                         <div className="flex gap-6 hero-cta-group">
-                            <a id="hero-btn-cv" href="./my_cv.pdf" target="_blank" rel="noopener noreferrer" className="btn-cv">
+                            <a id="hero-btn-cv" href="https://drive.google.com/file/d/15tyIpHbM3vfBsw4VlT5B0ZL8oS73VTM1/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-cv">
                                 <i className="fas fa-file-download"></i>
                                 <span>Download CV</span>
                             </a>

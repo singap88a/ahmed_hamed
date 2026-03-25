@@ -140,7 +140,7 @@ const Navbar = () => {
                         <div className="flex gap-8">
                             <a href="https://github.com/ahmed1707hamed-tech" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-github"></i></a>
                             <a href="https://www.linkedin.com/in/ahmed-hamed-340570364" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-linkedin"></i></a>
-                            <a href="https://t.me/Devops_bash" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-telegram"></i></a>
+                            <a href="https://t.me/Eng_Ahmed_7amed" target="_blank" rel="noreferrer" className="text-3xl text-white hover:text-[var(--clr-accent)] transition-all"><i className="fab fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
